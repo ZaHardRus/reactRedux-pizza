@@ -1,16 +1,13 @@
-import {useState} from "react";
-import {CartPopup} from "../CartPopup/CartPopup";
-import {useDispatch, useSelector} from "react-redux";
-import {removeGroupAC} from "../../redux/redusers/cart";
+import {useDispatch} from "react-redux";
+import {removeItemAC} from "../../redux/redusers/cart";
 
-export const CartItem = ({name, imageUrl, items, id}) => {
-    const [popupVisible,setPopupVisible] = useState(false)
-    const totalPrice = items[id].price
-    const count = items[id].items.length
+export const PopupItem = ({imageUrl,name,size,type,price,id,objectId}) => {
+
     const dispatch = useDispatch()
-    const removeGroup = (id)=>{
-        dispatch(removeGroupAC(id))
+    const removeItem = (id,objectId) => {
+        dispatch(removeItemAC(id,objectId))
     }
+
     return (
         <div className="cart__item">
             <div className="cart__item-img">
@@ -22,17 +19,14 @@ export const CartItem = ({name, imageUrl, items, id}) => {
             </div>
             <div className="cart__item-info">
                 <h3>{name}</h3>
-                <p onClick={()=>setPopupVisible(true)}>Проверить конфигурацию</p>
-                {popupVisible && <CartPopup setPopupVisible={setPopupVisible} items={items} id={id}/>}
+                <p>{type} тесто, {size} см.</p>
             </div>
-            <div className="cart__item-count">
-                <b>{count} шт.</b>
-            </div>
+
             <div className="cart__item-price">
-                <b>{totalPrice} ₽</b>
+                <b>{price} ₽</b>
             </div>
-            <div className="cart__item-remove" onClick={()=>removeGroup(id)}>
-                <div className="button button--outline button--circle">
+            <div className="cart__item-remove">
+                <div className="button button--outline button--circle" onClick={()=>removeItem(id,objectId)}>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path

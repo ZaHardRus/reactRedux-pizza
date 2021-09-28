@@ -1,17 +1,20 @@
-@import 'variables';
+@import '../variables';
 
 .sort {
   position: relative;
+
   &__label {
     display: flex;
     align-items: center;
 
     svg {
       margin-right: 8px;
+      cursor: pointer;
     }
 
     b {
       margin-right: 8px;
+      cursor: pointer;
     }
 
     span {
@@ -31,9 +34,15 @@
     overflow: hidden;
     padding: 10px 0;
     width: 160px;
+    transition: .1s;
+
+    &--hidden {
+      visibility: hidden;
+    }
 
     ul {
       overflow: hidden;
+
       li {
         padding: 12px 20px;
         cursor: pointer;
@@ -50,4 +59,19 @@
       }
     }
   }
+}
+
+.sort__param {
+  display: flex;
+  justify-content: space-between;
+  min-width: 230px;
+}
+
+.svg {
+  transition: .7s;
+  transform: rotate(180deg);
+}
+
+.svg-rotate {
+  transform: rotate(0deg);
 }

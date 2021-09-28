@@ -6,13 +6,14 @@
 
 body {
   background-color: $background;
+  padding: 50px 0;
 }
 
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
+  margin: 0 auto;
   background-color: #fff;
-  margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
 }
@@ -27,13 +28,15 @@ body {
   &__items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
   }
 }
 
@@ -43,7 +46,7 @@ body {
 
   &--cart {
     max-width: 820px;
-    margin: 90px auto;
+    margin: 0 auto;
     .content__title {
       margin: 0;
     }
@@ -108,10 +111,11 @@ body {
 
   &__item {
     display: flex;
+    justify-content: center;
     width: 100%;
     border-top: 1px solid $gray-line;
     padding-top: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
 
     &-img {
       display: flex;
@@ -165,6 +169,7 @@ body {
 
     &-price {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 33%;
@@ -309,4 +314,47 @@ body {
       font-size: 18px;
     }
   }
+}
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupWrapper {
+  margin: 50px;
+  border-radius: 30px;
+  width: 1024px;
+  min-height: 200px;
+  background-color: #fff;
+  padding: 40px;
+  overflow-x: hidden;
+  overflow-y: auto
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popupClose {
+  display: block;
+  background-color: #fe5f1e;
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
+  border: 1px solid transparent;
 }
