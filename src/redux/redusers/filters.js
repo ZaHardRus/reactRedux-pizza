@@ -5,7 +5,7 @@ const SET_FILTER = 'SET_FILTER'
 const initialState = {
     sortBy: 'popular',
     sortCategory: 0,
-    filterCategory:null,
+    filterCategory: null,
 }
 
 export const filtersReduser = (state = initialState, action) => {

@@ -29,23 +29,18 @@ export const pizzasReduser = (state = initialState, action) => {
 export const setPizzasAC = (items) => ({type: SET_PIZZAS, payload: items})
 export const setLoadedAC = (payload) => ({type: SET_LOADED, payload})
 
-export const fetchPizzasTC = (category = null,sort = 'rating') => async (dispatch) => {
-    let sortBy,flag;
-
+export const fetchPizzasTC = (category = null, sort = 'rating') => async (dispatch) => {
+    const sortMap = {
+        popular: {param: 'rating', order: 'desc'},
+        price: {param: 'price', order: 'asc'},
+        alphabet: {param: 'name', order: 'asc'}
+    }
+    let sortBy = sortMap[sort].param
+    let order = sortMap[sort].order
     let selectedCategory = category === null ? '' : `category=${category}`
-    if(sort==='popular'){
-        sortBy = 'rating'
-        flag = 'desc'
-    }
-    if(sort === 'price'){
-        sortBy = 'price'
-        flag = 'asc'
-    }
-    if(sort === 'alphabet'){
-        sortBy = 'name'
-        flag = 'asc'
-    }
+
+
     dispatch(setLoadedAC(false))
-    const fetchCards = await axios.get(`/pizzas?${selectedCategory}&_sort=${sortBy}&_order=${flag}`)
+    const fetchCards = await axios.get(`/pizzas?${selectedCategory}&_sort=${sortBy}&_order=${order}`)
     dispatch(setPizzasAC(fetchCards.data))
 }

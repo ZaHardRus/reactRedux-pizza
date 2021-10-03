@@ -21,9 +21,7 @@ export const Card = ({id, types, sizes, name, price, imageUrl, onAddPizza,addedP
         setActiveType(index)
     }
 
-
     const handleAddToCart = () => {
-
         const pizza = {
             id,
             name,

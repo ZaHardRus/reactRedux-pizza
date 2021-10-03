@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {formatPrice} from "../../utils/FormatPrice";
 
 export const Header = () => {
-    const {totalPrice, itemsCount} = useSelector(({cartReduser})=>cartReduser)
+    const {totalPrice, itemsCount} = useSelector((state)=>state.cart)
 
     return (
         <header className="header">
@@ -54,7 +54,6 @@ export const Header = () => {
                             <span>{itemsCount}</span>
                         </Button>
                     </Link>
-                    {/*<a href="/cart.html" className="button button--cart"></a>*/}
                 </div>
             </div>
         </header>

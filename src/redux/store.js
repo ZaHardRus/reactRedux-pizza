@@ -6,11 +6,11 @@ import {cartReduser} from "./redusers/cart";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootRedusers = combineReducers({
-    filtersReduser,
-    pizzasReduser,
-    cartReduser,
+const rootReduser = combineReducers({
+    filters:filtersReduser,
+    pizzas:pizzasReduser,
+    cart:cartReduser,
 });
-const store = createStore(rootRedusers, composeEnhancers(applyMiddleware(thunk)))
+const store = createStore(rootReduser, composeEnhancers(applyMiddleware(thunk)))
 
 export default store

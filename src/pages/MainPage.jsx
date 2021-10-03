@@ -6,24 +6,25 @@ import {CardLoader} from "../component/Card/CardLoader";
 import {useEffect} from "react";
 import {fetchPizzasTC} from "../redux/redusers/pizzas";
 import {addPizzaToCartAC} from "../redux/redusers/cart";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
 export const MainPage = () => {
 
-    const selectedCategory = useSelector(state => state.filtersReduser.filterCategory)
-    const sortBy = useSelector(state => state.filtersReduser.sortBy)
-    const pizzasList = useSelector(state=>state.pizzasReduser.items)
-    const isLoaded = useSelector(state=>state.pizzasReduser.isLoaded)
-    const cartItems = useSelector(state=>state.cartReduser.items)
+    const selectedCategory = useSelector(state => state.filters.filterCategory)
+    const sortBy = useSelector(state => state.filters.sortBy)
+    const pizzasList = useSelector(state => state.pizzas.items)
+    const isLoaded = useSelector(state => state.pizzas.isLoaded)
+    const cartItems = useSelector(state => state.cart.items)
     const dispatch = useDispatch()
+    useEffect(() => {
 
-    useEffect(()=>{
-        dispatch(fetchPizzasTC(selectedCategory,sortBy))
-    },[selectedCategory,sortBy])
+        dispatch(fetchPizzasTC(selectedCategory, sortBy))
+        // eslint-disable-next-line
+    }, [selectedCategory, sortBy])
 
     const onAddPizza = (pizza) => {
         const objectId = uuidv4()
-        dispatch(addPizzaToCartAC({...pizza,objectId}))
+        dispatch(addPizzaToCartAC({...pizza, objectId}))
     }
     return (
         <div className="container">
@@ -33,15 +34,16 @@ export const MainPage = () => {
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
-                {isLoaded ? pizzasList.map(el =>
-                    <Card
-                        addedPizzas={cartItems[el.id] && cartItems[el.id].items.length}
-                        onAddPizza={onAddPizza}
-                        key={el.id}
-                        {...el}
-                    />
-                )
-                :Array(10).fill(1).map((el,i)=><CardLoader key={'fake'+i}/>)}
+                {isLoaded
+                    ? pizzasList.map(el =>
+                        <Card
+                            addedPizzas={cartItems[el.id] && cartItems[el.id].items.length}
+                            onAddPizza={onAddPizza}
+                            key={el.id}
+                            {...el}
+                        />
+                    )
+                    : Array(10).fill(1).map((el, i) => <CardLoader key={i}/>)}
             </div>
         </div>
     )

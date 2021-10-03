@@ -8,8 +8,8 @@ const initialState = {
     totalPrice: 0,
     itemsCount: 0,
 }
-const getTotalPrice = arr => arr.reduce((sum, obj) => obj.price + sum, 0)
-const getAllPizzas = arr => Object.values(arr).map(el => el.items).flat();
+const getTotalPrice = (arr) => arr.reduce((sum, obj) => obj.price + sum, 0)
+const getAllPizzas = (arr) => Object.values(arr).map(el => el.items).flat();
 
 export const cartReduser = (state = initialState, action) => {
     switch (action.type) {

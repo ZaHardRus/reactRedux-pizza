@@ -4,10 +4,10 @@ function CalcFinalPrice(val) {
 export const  calcFinalPrice = (price,sizePizza,activeSize) => {
     let finalPrice = price;
     if(sizePizza[activeSize] === 30){
-        finalPrice = price * 1.2
+        finalPrice = price * 1.5
     }
     if(sizePizza[activeSize] === 40){
-        finalPrice = price * 1.5
+        finalPrice = price * 2
     }
     return CalcFinalPrice(finalPrice)
 }

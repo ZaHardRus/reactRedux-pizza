@@ -9,7 +9,7 @@ export const SortByCategory = React.memo( ({sortBy}) => {
         {category: 'популярности', type: 'popular'},
         {category: 'цене', type: 'price'},
         {category: 'алфавиту', type: 'alphabet'}]
-    const sortCategory = useSelector(state => state.filtersReduser.sortCategory)
+    const sortCategory = useSelector(state => state.filters.sortCategory)
 
     const selectedParam = param[sortCategory].category
     const [popupVisible, setPopupVisible] = useState(false)
