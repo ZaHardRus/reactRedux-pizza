@@ -41,6 +41,10 @@ export const fetchPizzasTC = (category = null, sort = 'rating') => async (dispat
 
 
     dispatch(setLoadedAC(false))
-    const fetchCards = await axios.get(`/pizzas?${selectedCategory}&_sort=${sortBy}&_order=${order}`)
-    dispatch(setPizzasAC(fetchCards.data))
+    try{
+        const fetchCards = await axios.get(`/pizzas?${selectedCategory}&_sort=${sortBy}&_order=${order}`)
+        dispatch(setPizzasAC(fetchCards.data))
+    }catch(e){
+        alert('Произошла оошибка при загрузке ')
+    }
 }
