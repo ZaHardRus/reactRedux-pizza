@@ -9,6 +9,14 @@
     align-items: center;
     justify-content: space-between;
   }
+  @media (max-width:576px){
+    .container {
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  }
 
   &__logo {
     display: flex;
