@@ -14,18 +14,21 @@ export const CartItem = ({name, imageUrl, items, id}) => {
     }
     return (
         <div className="cart__item">
-            <div className="cart__item-img">
-                <img
-                    className="pizza-block__image"
-                    src={imageUrl}
-                    alt="Pizza"
-                />
+            <div className='cart__pizza-info'>
+                <div className="cart__item-img">
+                    <img
+                        className="pizza-block__image"
+                        src={imageUrl}
+                        alt="Pizza"
+                    />
+                </div>
+                <div className="cart__item-info">
+                    <h3>{name}</h3>
+                    <p className={'cart__item-config'} onClick={() => setPopupVisible(true)}>Проверить конфигурацию</p>
+                    {popupVisible && <CartPopup popupVisible={popupVisible} setPopupVisible={setPopupVisible} items={items} id={id}/>}
+                </div>
             </div>
-            <div className="cart__item-info">
-                <h3>{name}</h3>
-                <p className={'cart__item-config'} onClick={() => setPopupVisible(true)}>Проверить конфигурацию</p>
-                {popupVisible && <CartPopup setPopupVisible={setPopupVisible} items={items} id={id}/>}
-            </div>
+
             <div className="cart__item-count">
                 <b>{count} шт.</b>
             </div>

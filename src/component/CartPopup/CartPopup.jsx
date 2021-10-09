@@ -1,8 +1,14 @@
 import {PopupItem} from "./PopupItem";
+import {useRef} from "react";
 
-export const CartPopup = ({items,id,setPopupVisible}) => {
+export const CartPopup = ({items,id,setPopupVisible, popupVisible}) => {
     const closePopup = () => {
         setPopupVisible(false)
+        body.current.style.overflow = 'auto'
+    }
+    const body = useRef(document.body)
+    if(popupVisible){
+        body.current.style.overflow = 'hidden'
     }
     return(
         <div  className={'overlay'}>

@@ -117,11 +117,11 @@ body {
   &__item {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     border-top: 1px solid $gray-line;
     padding-top: 30px;
     margin-top: 10px;
-
     &-config{
       cursor: pointer;
     }
@@ -160,7 +160,7 @@ body {
     &-count {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       width: 13%;
 
       &-minus {
@@ -289,7 +289,7 @@ body {
 
   &--empty {
     margin: 0 auto;
-    width: 560px;
+    max-width: 560px;
     text-align: center;
 
     h2 {
@@ -334,15 +334,14 @@ body {
   z-index: 1000;
   overflow-x: hidden;
   overflow-y: auto;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .popupWrapper {
-  margin: 50px;
+  margin: 50px auto;
   border-radius: 30px;
-  width: 1024px;
+  max-width: 1024px;
   min-height: 200px;
   background-color: #fff;
   padding: 40px;
@@ -366,4 +365,77 @@ body {
   cursor: pointer;
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
   border: 1px solid transparent;
+}
+
+.cart__item{
+  .cart__pizza-info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 50px;
+  }
+}
+@media (max-width: 565px) {
+  .header{
+    padding-bottom: 20px;
+  }
+  .cart__top{
+    gap: 50px;
+  }
+  .content{
+    padding-top: 20px;
+  }
+  .cart__pizza-info{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    h3,p{
+      font-size: 18px;
+    }
+  }
+  .cart__item-count{
+    flex: 1;
+    b{
+      font-size: 18px;
+    }
+  }
+  .cart__item-price{
+    flex: 2;
+    b{
+      font-size: 18px;
+    }
+  }
+  .button{
+    flex: 1;
+  }
+  .cart__bottom-buttons{
+    gap: 30px;
+  }
+  .cart__bottom-details span{
+    font-size: 16px;
+  }
+}
+@media (max-width: 800px){
+  .popupWrapper{
+    margin: 0 auto;
+    .cart__item{
+      display: flex;
+      justify-content: stretch;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .cart__pizza-info{
+      flex: 2;
+      gap: 0;
+      img{
+        display: none;
+      }
+    }
+    .cart__item-price{
+      flex: 1;
+    }
+    .button{
+      flex:1;
+    }
+  }
 }
