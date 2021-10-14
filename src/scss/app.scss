@@ -413,6 +413,10 @@ body {
   }
   .popupWrapper {
     width: 100%;
+    max-height: 100vh;
+    .cart__pizza-info{
+      gap: 0;
+    }
   }
   .header{
     padding-bottom: 20px;
