@@ -16,6 +16,7 @@ body {
   background-color: #fff;
   border-radius: 10px;
   max-width: 1400px;
+  box-shadow: inset 0 5px 10px 10px #ffdf8c;
 }
 
 .content {
@@ -23,6 +24,7 @@ body {
 
   &__title {
     margin: 35px 0;
+    text-align: center;
   }
 
   &__items {
@@ -35,16 +37,18 @@ body {
   &__top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
   }
 }
-@media (max-width:576px){
+
+@media (max-width: 576px) {
   .wrapper {
     width: 100%;
   }
 }
+
 .container {
   width: $container-width;
   margin: 0 auto;
@@ -52,6 +56,7 @@ body {
   &--cart {
     max-width: 820px;
     margin: 0 auto;
+
     .content__title {
       margin: 0;
     }
@@ -76,6 +81,7 @@ body {
       width: 30px;
       height: 30px;
       margin-right: 10px;
+
       path {
         stroke: $black;
         stroke-width: 1.9;
@@ -108,6 +114,7 @@ body {
           stroke: darken($color: #b6b6b6, $amount: 50);
         }
       }
+
       span {
         color: darken($color: #b6b6b6, $amount: 50);
       }
@@ -122,7 +129,8 @@ body {
     border-top: 1px solid $gray-line;
     padding-top: 30px;
     margin-top: 10px;
-    &-config{
+
+    &-config {
       cursor: pointer;
     }
 
@@ -211,6 +219,7 @@ body {
           height: 11.5px;
           position: relative;
         }
+
         &:hover,
         &:active {
           border-color: darken($color: $gray-line, $amount: 80);
@@ -268,6 +277,7 @@ body {
 
         svg {
           margin-right: 12px;
+
           path {
             fill: transparent;
             stroke-width: 2;
@@ -321,6 +331,7 @@ body {
     }
   }
 }
+
 .overlay {
   display: flex;
   position: fixed;
@@ -338,7 +349,7 @@ body {
 
 .popupWrapper {
   white-space: nowrap;
-  max-width: 100%;
+  width: 60%;
   max-height: 95%;
   margin: 50px auto;
   border-radius: 30px;
@@ -346,11 +357,16 @@ body {
   padding: 20px;
   overflow-x: hidden;
   overflow-y: auto;
-  .popupTitle{
+
+  .popupTitle {
     text-align: center;
   }
 }
-.popupWrapper::-webkit-scrollbar { width: 0; }
+
+.popupWrapper::-webkit-scrollbar {
+  width: 0;
+}
+
 .buttonWrapper {
   display: flex;
   justify-content: flex-end;
@@ -369,97 +385,126 @@ body {
   border: 1px solid transparent;
 }
 
-.cart__item{
-  gap: 40px;
-  .cart__pizza-info{
+.cart__item {
+  .cart__pizza-info {
     display: flex;
     align-items: flex-start;
     gap: 50px;
   }
 }
 
-@media (max-width: 800px){
-  .cart__item{
-    .cart__pizza-info{
-      gap:50px;
+@media (max-width: 800px) {
+  .cart__item {
+    .cart__pizza-info {
+      gap: 50px;
     }
   }
 
-  .popupWrapper{
+  .popupWrapper {
+    width: 80%;
     margin: 0 auto;
-    .cart__item{
-      display: flex;
-      justify-content: stretch;
-      flex-wrap: wrap;
+
+    .cart__pizza-info {
       gap: 40px;
     }
-    .cart__pizza-info{
-      gap: 40px;
-    }
-    .cart__item-price{
+
+    .cart__item-price {
       flex: 1;
     }
-    .button{
-      flex:1;
+
+    .button {
+      flex: 1;
     }
   }
 }
+
 @media (max-width: 640px) {
-  body{
+  body {
     padding: 0;
   }
   .popupWrapper {
     width: 100%;
     max-height: 100vh;
-    .cart__pizza-info{
+
+    .cart__pizza-info {
       gap: 0;
       white-space: normal;
     }
   }
-  .header{
+  .header {
     padding-bottom: 20px;
   }
-  .cart__top{
-    gap: 50px;
-  }
-  .content{
+
+  .content {
     padding-top: 20px;
   }
-  .cart__item{
-    .cart__pizza-info{
-      display: flex;
+
+  .cart__item-count {
+    flex: 1;
+
+    b {
+      font-size: 18px;
+    }
+  }
+  .cart__item-price {
+    flex: 2;
+
+    b {
+      font-size: 18px;
+    }
+  }
+  .button {
+    flex: 1;
+  }
+  .cart__bottom-buttons {
+    gap: 30px;
+  }
+  .cart__bottom-details span {
+    font-size: 16px;
+  }
+}
+
+.content__items {
+  b {
+    text-align: center;
+  }
+
+  .cart__item {
+    display: flex;
+    max-width: 100%;
+    @media (max-width: 680px) {
       flex-direction: column;
-      flex: 2;
-      gap: 0;
-      h3,p{
-        font-size: 18px;
-      }
     }
   }
 
-  .cart__item-count{
-    flex: 1;
-    b{
-      font-size: 18px;
+  .cart__item-main-info {
+    text-align: center;
+  }
+
+  .cart__item-sub-info {
+    display: flex;
+    font-size: 14px;
+    gap: 25px;
+  }
+}
+
+.popupWrapper {
+  .cart__item {
+    display: flex;
+    max-width: 100%;
+    @media (max-width: 680px) {
+      flex-direction: row;
     }
   }
-  .cart__item-price{
-    flex: 2;
-    b{
-      font-size: 18px;
-    }
-  }
-  .button{
-    flex: 1;
-  }
-  .cart__bottom-buttons{
-    gap: 30px;
-  }
-  .cart__bottom-details span{
-    font-size: 16px;
-  }
-  .cart__item{
-    gap: 0;
-    padding: 10px;
+}
+
+.popup__items-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .cart__pizza-info, .cart__item-price, .cart__item-remove {
+    width: 33%;
   }
 }
