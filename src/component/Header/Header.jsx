@@ -14,13 +14,13 @@ export const Header = () => {
                     <img width="70" src={HeaderLogo} alt="Pizza logo"/>
                     <div>
                         <h1>React Pizza</h1>
-                        <p>самая вкусная пицца во вселенной</p>
+                        <p>самая вкусная пицца</p>
                     </div>
                 </Link>
                 <div className="header__cart">
                     <Link to={'cart'}>
                         <Button cart>
-                            <span>{formatPrice(totalPrice)} ₽</span>
+                            <span>{formatPrice(totalPrice)}₽</span>
                             <div className="button__delimiter"></div>
                             <svg
                                 width="18"

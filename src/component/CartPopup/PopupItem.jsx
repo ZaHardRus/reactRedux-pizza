@@ -20,7 +20,8 @@ export const PopupItem = ({imageUrl,name,size,type,price,id,objectId}) => {
                 </div>
                 <div className="cart__item-info">
                     <h3>{name}</h3>
-                    <p>{type} тесто, {size} см.</p>
+                    <p>{type}</p>
+                    <p>{size}см.</p>
                 </div>
             </div>
 
