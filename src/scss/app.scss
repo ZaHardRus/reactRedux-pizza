@@ -345,7 +345,10 @@ body {
   background-color: #fff;
   padding: 20px;
   overflow-x: hidden;
-  overflow-y: auto
+  overflow-y: auto;
+  .popupTitle{
+    text-align: center;
+  }
 }
 .popupWrapper::-webkit-scrollbar { width: 0; }
 .buttonWrapper {
@@ -378,7 +381,7 @@ body {
 @media (max-width: 800px){
   .cart__item{
     .cart__pizza-info{
-      gap:0;
+      gap:50px;
     }
   }
 
@@ -392,9 +395,6 @@ body {
     }
     .cart__pizza-info{
       gap: 40px;
-      img{
-        display: none;
-      }
     }
     .cart__item-price{
       flex: 1;
@@ -404,7 +404,7 @@ body {
     }
   }
 }
-@media (max-width: 565px) {
+@media (max-width: 640px) {
   body{
     padding: 0;
   }
@@ -413,6 +413,7 @@ body {
     max-height: 100vh;
     .cart__pizza-info{
       gap: 0;
+      white-space: normal;
     }
   }
   .header{
@@ -424,15 +425,18 @@ body {
   .content{
     padding-top: 20px;
   }
-  .cart__pizza-info{
-    display: flex;
-    flex-direction: column;
-    flex: 2;
-    gap: 0;
-    h3,p{
-      font-size: 18px;
+  .cart__item{
+    .cart__pizza-info{
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      gap: 0;
+      h3,p{
+        font-size: 18px;
+      }
     }
   }
+
   .cart__item-count{
     flex: 1;
     b{

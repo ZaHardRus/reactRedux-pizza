@@ -20,13 +20,16 @@ export const CartPopup = ({items,id,setPopupVisible, popupVisible}) => {
                 <div className={'buttonWrapper'}>
                     <button className={'popupClose'} onClick={closePopup}>X</button>
                 </div>
+                <div className={'popupTitle'} >
+                    <img src={items[id].items[0].imageUrl} alt="select-pizza" width={100}/>
+                    <h2>{items[id].items[0].name}</h2>
+                </div>
+
                 {
                     items[id].items.map(el=><PopupItem
                         key={el.objectId}
                         type={el.type}
                         id={el.id}
-                        name={el.name}
-                        imageUrl={el.imageUrl}
                         size={el.size}
                         price={el.price}
                         objectId={el.objectId}
