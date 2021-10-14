@@ -376,6 +376,9 @@ body {
   }
 }
 @media (max-width: 565px) {
+  body{
+    padding: 0;
+  }
   .header{
     padding-bottom: 20px;
   }

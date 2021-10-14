@@ -1,4 +1,4 @@
-import HeaderLogo from "../../assets/image/header-logo.png";
+import HeaderLogo from "../../assets/image/header-logo1.png";
 import {Button} from "../Button/Button";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
@@ -11,7 +11,7 @@ export const Header = () => {
         <header className="header">
             <div className="container">
                 <Link to={'/'} className="header__logo">
-                    <img width="38" src={HeaderLogo} alt="Pizza logo"/>
+                    <img width="70" src={HeaderLogo} alt="Pizza logo"/>
                     <div>
                         <h1>React Pizza</h1>
                         <p>самая вкусная пицца во вселенной</p>
