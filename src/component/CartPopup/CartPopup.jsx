@@ -5,16 +5,13 @@ export const CartPopup = ({items,id,setPopupVisible, popupVisible}) => {
     const body = useRef(document.body)
     const closePopup = () => {
         setPopupVisible(false)
-        body.current.style.overflow = 'auto'
     }
     if(popupVisible){
         body.current.style.overflow = 'hidden'
     }
     useEffect(  ()=>{
        return function (){
-           if(Object.values(items[id])[0].length === 0){
-               closePopup()
-           }
+           body.current.style.overflow = 'auto'
        }
     },[])
     return(
