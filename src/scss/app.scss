@@ -479,6 +479,11 @@ body {
 
   .cart__item-main-info {
     text-align: center;
+    width: 250px;
+    gap: 10px;
+    h3{
+      margin-bottom: 10px;
+    }
   }
 
   .cart__item-sub-info {
