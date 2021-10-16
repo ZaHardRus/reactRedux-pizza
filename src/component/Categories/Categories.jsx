@@ -4,7 +4,7 @@ import {setFilterAC} from "../../redux/redusers/filters";
 
 
 export const Categories = React.memo(() => {
-    const items = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
+    const items = ['Мясные', 'Вегетарианская','Гриль', 'Острые', 'Рыбные']
     const selectedCategory = useSelector(state => state.filters.filterCategory)
     const dispatch = useDispatch()
 

@@ -5,13 +5,13 @@ import {Button} from "../Button/Button";
 import {calcFinalPrice} from "../../utils/calcFinalPrice";
 import {formatPrice} from "../../utils/FormatPrice";
 
-export const Card = ({id, types, sizes, name, price, imageUrl, onAddPizza,addedPizzas}) => {
-    const typePizza = ['тонкое', 'традиционное']
+export const Card = ({id, types, sizes, name, structure = [], price, imageUrl, onAddPizza, addedPizzas}) => {
+    const typePizza = ['традиционное','тонкое']
     const sizePizza = [26, 30, 40]
 
     const [activeType, setActiveType] = useState(types[0])
     const [activeSize, setActiveSize] = useState(sizes[0])
-
+    const [isStructure,setIsStructure] = useState(false)
     const finalPrice = calcFinalPrice(price,sizePizza,activeSize)
 
     const onSelectSize = (index) => {
@@ -34,11 +34,29 @@ export const Card = ({id, types, sizes, name, price, imageUrl, onAddPizza,addedP
     }
     return (
         <div className="pizza-block">
-            <img
-                className="pizza-block__image"
-                src={imageUrl}
-                alt="Pizza"
-            />
+            <div className="pizza-block__image" onClick={()=>setIsStructure(prev=>!prev)}>
+                {isStructure
+                    ?<div
+                        style={
+                            {
+                                backgroundImage:`url(${imageUrl})`,
+                                backgroundSize:'contain'
+                        }}
+                        className="structure">
+                        <ul className="structure-wrapper">
+                            {structure.map(el=><li>{el},</li>)}
+                        </ul>
+                    </div>
+                    :<img
+                        width={260}
+                        height={260}
+                        src={imageUrl}
+                        alt="Pizza"
+                    />
+                }
+
+            </div>
+
             <h4 className="pizza-block__title">{name}</h4>
             <div className="pizza-block__selector">
                 <ul>
