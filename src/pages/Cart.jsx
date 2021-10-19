@@ -5,6 +5,7 @@ import {CartEmpty} from "../component/CartEmpty/CartEmpty";
 import {Link} from "react-router-dom";
 
 export const Cart = () => {
+
     const dispatch = useDispatch()
     const {items, totalPrice, itemsCount} = useSelector(state => state.cart)
     const groupPizzas = Object.keys(items).map(el => items[el].items[0])
