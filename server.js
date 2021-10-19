@@ -11,7 +11,7 @@ server.use(router);
 
 server.listen(port);
 
-server.get("*", (req, res) => {
+server.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./build", "index.html"));
 })
 server.listen(port,()=>console.log('server is running' + port))
