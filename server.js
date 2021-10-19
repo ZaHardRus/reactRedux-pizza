@@ -8,7 +8,7 @@ const middlewares = jsonServer.defaults({
 
 const PORT = process.env.PORT || 3000;
 server.get("/cart", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build"));
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 server.use(middlewares);
 server.use(router);
