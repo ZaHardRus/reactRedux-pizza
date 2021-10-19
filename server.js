@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 3001;
 
 server.use(middlewares);
 server.use(router)
-server.get("/cart", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./build", "index.html"));
+server.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/build/index.html'));
 });
 
 server.listen(PORT, () => {
