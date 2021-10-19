@@ -12,7 +12,7 @@ function App() {
                 <Route exact path={'/'}>
                     <MainPage/>
                 </Route>
-                <Route exact path={'/cart'}>
+                <Route path={'/cart'}>
                     <Cart/>
                 </Route>
             </div>
