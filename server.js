@@ -9,7 +9,10 @@ const middlewares = jsonServer.defaults({
 const PORT = process.env.PORT || 3001;
 
 server.use(middlewares);
-server.use(router);
+server.use(router)
+server.get("/cart", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./build", "index.html"));
+});
 
 server.listen(PORT, () => {
     console.log('Server is running');
