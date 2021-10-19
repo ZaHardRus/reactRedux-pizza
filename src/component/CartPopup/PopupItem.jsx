@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {removeItemAC} from "../../redux/redusers/cart";
 
-export const PopupItem = ({imageUrl,name,size,type,price,id,objectId}) => {
+export const PopupItem = ({size,type,price,id,objectId}) => {
 
     const dispatch = useDispatch()
     const removeItem = (id,objectId) => {

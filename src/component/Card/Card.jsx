@@ -5,7 +5,7 @@ import {Button} from "../Button/Button";
 import {calcFinalPrice} from "../../utils/calcFinalPrice";
 import {formatPrice} from "../../utils/FormatPrice";
 
-export const Card = ({id, types, sizes, name, structure = [], price, imageUrl, onAddPizza, addedPizzas}) => {
+export const Card = ({id, types, sizes, name, structure, price, imageUrl, onAddPizza, addedPizzas}) => {
     const typePizza = ['традиционное','тонкое']
     const sizePizza = [26, 30, 40]
 
@@ -40,11 +40,12 @@ export const Card = ({id, types, sizes, name, structure = [], price, imageUrl, o
                         style={
                             {
                                 backgroundImage:`url(${imageUrl})`,
-                                backgroundSize:'contain'
+                                backgroundSize:'contain',
+                                backgroundPosition:'7px 5px'
                         }}
                         className="structure">
                         <ul className="structure-wrapper">
-                            {structure.map(el=><li>{el},</li>)}
+                            {structure.map(el=><li className='structure-item'>{el}</li>)}
                         </ul>
                     </div>
                     :<img
@@ -52,6 +53,7 @@ export const Card = ({id, types, sizes, name, structure = [], price, imageUrl, o
                         height={260}
                         src={imageUrl}
                         alt="Pizza"
+                        className='imageUrl'
                     />
                 }
 
