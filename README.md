@@ -1,16 +1,16 @@
-##Clone down this repository. You will need node and npm installed globally on your machine.
+## Clone down this repository. You will need node and npm installed globally on your machine.  
 
-Installation:
-####npm install
+Installation:  
+#### npm install  
 
-## Available Scripts
+## Available Scripts  
 
-In the project directory, you can run:
+In the project directory, you can run:  
 
-#### npm run json-server
-#### npm start
+#### npm run json-server  
+#### npm start  
 
-##Link for preview:
-https://zahard-pizzas.herokuapp.com/
+## Link for preview:  
+https://zahard-pizzas.herokuapp.com/  
 
 
